@@ -75,11 +75,15 @@ namespace calculator{
             system("cls");
             cout << "Enter all your scores one by one (Enter -1 when done):";
             double score;
+            cin >> score;
             while (score!=-1) { 
-                cin >> score;
                 if (checkValidScore(score)){
+                    cout << "Valid\n";
                     grades.push_back(convertScoreToGrade(score));
-                };
+                } else {
+                    cout << "Not valid\n";
+                }
+                cin >> score;
             }
             cout << "Done";
         }

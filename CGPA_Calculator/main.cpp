@@ -15,6 +15,7 @@ int main(){
     cin >> name;
     student.setName(name);
     student.addGrades();
-
+    student.calculateGPA();
+    cin;
     return 0;
 }
