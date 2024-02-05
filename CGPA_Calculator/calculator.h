@@ -15,10 +15,10 @@ namespace calculator{
             double cgpa;
             vector<string> courses;
             vector<double> grades;
-            bool checkValidScore(double score);
             double convertScoreToGrade(double score);
             
-        public:
+        public: 
+            bool checkValidScore(double score);
             Student();
             void setName(string name);
             void setAge(int age);

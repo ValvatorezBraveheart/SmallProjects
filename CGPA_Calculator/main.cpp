@@ -8,8 +8,6 @@ void displayMainMenu(){
     cout << "===============\n";
 }
 
-
-
 int main(){
     string name;
     calculator::Student student;

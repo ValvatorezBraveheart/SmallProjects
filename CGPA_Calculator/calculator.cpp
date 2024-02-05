@@ -10,96 +10,86 @@
     - Might split into 2, one that take files, one that take 
     This one doesn't seems like we need a class
 */
-
-namespace{
-
+namespace calculator{ 
+    
 }
 namespace calculator{
     using namespace std;
-    class Student{
-        private:
-            string name;
-            int age;
-            double cgpa;
-            vector<string> courses;
-            vector<double> grades;
-            bool checkValidScore(double score) {
-                if(score>=0&&score<=100) {
-                    return true;
-                }
-                return false;
-            }
-            double convertScoreToGrade(double score){
-                //Since it slowly go down, we can do it like
-                if(score>=90){
-                    return 4.3;
-                } else if (score>=85) {
-                    return 4.0;
-                } else if (score>=80) {
-                    return 3.7;
-                } else if (score>=77) {
-                    return 3.3;
-                } else if (score>=73) {
-                    return 3.0;
-                } else if (score>=70) {
-                    return 2.7;
-                } else if (score>=67) {
-                    return 2.3;
-                } else if (score>=63) {
-                    return 2.0;
-                } else if (score>=60) {
-                    return 1.7;
-                } else if (score>=57) {
-                    return 1.3;
-                } else if (score>=53) {
-                    return 1.0;
-                } else if (score>=50) {
-                    return 0.7;
-                } else {
-                    return 0.0;
-                }
+    bool Student::checkValidScore(double score) {
+        if(score>=0&&score<=100) {
+            return true;
+        }
+        return false;
+    }
+    double Student::convertScoreToGrade(double score){
+        //Since it slowly go down, we can do it like
+        if(score>=90){
+            return 4.3;
+        } else if (score>=85) {
+            return 4.0;
+        } else if (score>=80) {
+            return 3.7;
+        } else if (score>=77) {
+            return 3.3;
+        } else if (score>=73) {
+            return 3.0;
+        } else if (score>=70) {
+            return 2.7;
+        } else if (score>=67) {
+            return 2.3;
+        } else if (score>=63) {
+            return 2.0;
+        } else if (score>=60) {
+            return 1.7;
+        } else if (score>=57) {
+            return 1.3;
+        } else if (score>=53) {
+            return 1.0;
+        } else if (score>=50) {
+            return 0.7;
+        } else {
+            return 0.0;
+        }
+    }
 
+        Student::Student(){
+            courses = {};
+            grades = {};
+        }
+        void Student::setName(string name){
+            this->name = name;
+        }
+        void Student::setAge(int age){
+            this->age = age;
+        }
+        string Student::getName(){
+            return this->name;
+        }
+        int Student::getAge(){
+            return this->age;
+        }
+        double Student::getGPA(){
+            return this->cgpa;
+        }
+        void Student::addGrades(){
+            system("cls");
+            cout << "Enter all your scores one by one (Enter -1 when done):";
+            double score;
+            while (score!=-1) { 
+                cin >> score;
+                if (checkValidScore(score)){
+                    grades.push_back(convertScoreToGrade(score));
+                };
             }
-        public:
-            Student(){
-                courses = {};
-                grades = {};
+            cout << "Done";
+        }
+        void Student::calculateGPA(){
+            this->cgpa = 0;
+            for(double grades : this->grades){
+                this->cgpa += grades;
             }
-            void setName(string name){
-                this->name = name;
-            }
-            void setAge(int age){
-                this->age = age;
-            }
-            string getName(){
-                return this->name;
-            }
-            int getAge(){
-                return this->age;
-            }
-            double getGPA(){
-                return this->cgpa;
-            }
-            void addGrades(){
-                system("cls");
-                cout << "Enter all your scores one by one (Enter -1 when done):";
-                double score;
-                while (score!=-1) { 
-                    cin >> score;
-                    if (checkValidScore(score)){
-                        grades.push_back(convertScoreToGrade(score));
-                    };
-                }
-                cout << "Done";
-            }
-            void calculateGPA(){
-                this->cgpa = 0;
-                for(double grades : this->grades){
-                    this->cgpa += grades;
-                }
-                this->cgpa/=size(this->grades);
-                cout << "New GPA is " << this->cgpa;
-            }
+            this->cgpa/=size(this->grades);
+            cout << "New GPA is " << this->cgpa;
+        }
 
-    };
-};
+}
