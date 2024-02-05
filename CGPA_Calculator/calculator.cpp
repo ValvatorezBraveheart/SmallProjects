@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include "calculator.h"
 /* CGPA Calculator
     - Able to input informations(number of courses taken, grades earn in each)
     - Calculate CGPA from given results
@@ -15,9 +16,6 @@ namespace{
 }
 namespace calculator{
     using namespace std;
-
-
-    
     class Student{
         private:
             string name;
@@ -89,13 +87,11 @@ namespace calculator{
                 while (score!=-1) { 
                     cin >> score;
                     if (checkValidScore(score)){
-                        
+                        grades.push_back(convertScoreToGrade(score));
                     };
                 }
+                cout << "Done";
             }
-
-            
-
             void calculateGPA(){
                 this->cgpa = 0;
                 for(double grades : this->grades){
