@@ -72,7 +72,6 @@ namespace calculator{
             return this->cgpa;
         }
         void Student::addGrades(){
-            system("cls");
             cout << "Enter all your scores one by one (Enter -1 when done):";
             double score;
             cin >> score;
