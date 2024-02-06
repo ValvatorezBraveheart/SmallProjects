@@ -7,8 +7,9 @@ Progress:
     - Set up a student class
     - Able to take in and calculate cgpa on the go
     - Able to read a csv file and calculate cgpa
+    - GPA caluculate based on concordia courses and credits count
 
 
 
 Problems:
-    - Terminal output get weirds, random spaces for no reason
+    - Terminal output get weirds, random spaces for no reason (fixed)

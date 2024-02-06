@@ -29,6 +29,10 @@ int main(){
     string name;
     int option;
     calculator::Student student;
+    vector<string> words = calculator::tokenizer("This,is,a,sentence",',');
+    for(int i = 0; i<words.size();i++){
+        cout << words.at(i) << "\n";
+    }
     displayMainMenu();
     while(option!=3){
         cin >> option; 

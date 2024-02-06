@@ -1,6 +1,8 @@
 #include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 #include <cstdlib>
+#include <fstream>
 #include "calculator.h"
 /* CGPA Calculator
     - Able to input informations(number of courses taken, grades earn in each)
@@ -10,8 +12,19 @@
     - Might split into 2, one that take files, one that take 
     This one doesn't seems like we need a class
 */
+
 namespace calculator{
     using namespace std;
+    vector<string> tokenizer(string str, char del){
+        stringstream ss(str);
+        string word;
+        vector<string> words = {};
+        while (!ss.eof()) {
+            getline(ss, word, del);
+            words.push_back(word);
+        }
+        return words;
+    }
     bool Student::checkValidScore(double score) {
         if(score>=0&&score<=100) {
             return true;
@@ -49,50 +62,67 @@ namespace calculator{
         }
     }
 
-        Student::Student(){
-            courses = {};
-            grades = {};
-        }
-        void Student::setName(string name){
-            this->name = name;
-        }
-        void Student::setAge(int age){
-            this->age = age;
-        }
-        string Student::getName(){
-            return this->name;
-        }
-        int Student::getAge(){
-            return this->age;
-        }
-        double Student::getGPA(){
-            return this->cgpa;
-        }
-        void Student::addGradesManually(){
-            cout << "Enter all your scores one by one (Enter -1 when done):";
-            double score;
+    Student::Student(){
+        courses = {};
+        grades = {};
+    }
+    
+    void Student::setName(string name){
+        this->name = name;
+    }
+    void Student::setAge(int age){
+        this->age = age;
+    }
+    string Student::getName(){
+        return this->name;
+    }
+    int Student::getAge(){
+        return this->age;
+    }
+    double Student::getGPA(){
+        return this->cgpa;
+    }
+    void Student::addGradesManually(){
+        double score;
+        cout << "Enter all your scores one by one (Enter -1 when done):\n";
+        cout << "Note that scores can only be between 0 and 100\n";
+        cin >> score;
+        while (score!=-1) { 
+            if (checkValidScore(score)){
+                cout << "Valid\n";
+                grades.push_back(convertScoreToGrade(score));
+            } else {
+                cout << "Not valid\n";
+            }
             cin >> score;
-            while (score!=-1) { 
-                if (checkValidScore(score)){
-                    cout << "Valid\n";
-                    grades.push_back(convertScoreToGrade(score));
-                } else {
-                    cout << "Not valid\n";
-                }
-                cin >> score;
-            }
-            cout << "Done\n";
         }
-        void Student::calculateGPA(){
-            this->cgpa = 0;
-            for(double grades : this->grades){
-                this->cgpa += grades;
-            }
-            this->cgpa/=size(this->grades);
-            cout << "New GPA is " << this->cgpa;
+        cout << "Done\n";
+    }
+    //Might have to change later when taking credit into consideration
+    void Student::calculateGPA(){
+        this->cgpa = 0;
+        for(double grades : this->grades){
+            this->cgpa += grades;
         }
-        void Student::askForName(){
-            cin >> this->name;
-        }
+        this->cgpa/=size(this->grades);
+        cout << "New GPA is " << this->cgpa;
+    }
+    void Student::askForName(){
+        cin >> this->name;
+    }
+
+    void Student::addDataFromFile(){
+        string studentID,line;
+        //Note:
+        // - should be a csv file
+        // - Format should be
+        // Name,Id
+        // CourseName1,Grade1
+        // CourseName2,Grade2
+        cout << "Enter you file name (student id):";
+        cin >> studentID;
+        ifstream file(studentID+".csv");
+        getline(file,line);
+    }
 
 }

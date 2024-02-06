@@ -2,12 +2,13 @@
 #define CALCULATOR_H
 
 #include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 #include <cstdlib>
-namespace{
-}
+#include <fstream>
 namespace calculator{
     using namespace std;
+    vector<string> tokenizer(string str, char del);
     class Student{
         private:
             string name;
@@ -29,6 +30,7 @@ namespace calculator{
             void calculateGPA();
             void askForName();
             void addGradesManually();
+            void addDataFromFile();
     };
 }
 #endif
