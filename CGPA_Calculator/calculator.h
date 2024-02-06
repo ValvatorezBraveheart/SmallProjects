@@ -27,6 +27,8 @@ namespace calculator{
             double getGPA();
             void addGrades();
             void calculateGPA();
+            void askForName();
+            void addGradesManually();
     };
 }
 #endif

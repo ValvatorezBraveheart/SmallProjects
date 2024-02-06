@@ -68,7 +68,7 @@ namespace calculator{
         double Student::getGPA(){
             return this->cgpa;
         }
-        void Student::addGrades(){
+        void Student::addGradesManually(){
             cout << "Enter all your scores one by one (Enter -1 when done):";
             double score;
             cin >> score;
@@ -90,6 +90,9 @@ namespace calculator{
             }
             this->cgpa/=size(this->grades);
             cout << "New GPA is " << this->cgpa;
+        }
+        void Student::askForName(){
+            cin >> this->name;
         }
 
 }
