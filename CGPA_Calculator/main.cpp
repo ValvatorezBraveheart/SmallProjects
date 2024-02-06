@@ -43,6 +43,7 @@ int main(){
                 break;
             case 2:
                 cout << "This will be implemented later";
+                student.addDataFromFile();
                 break;
             case 3:
                 cout << "Exiting...";

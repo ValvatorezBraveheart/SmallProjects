@@ -113,6 +113,7 @@ namespace calculator{
 
     void Student::addDataFromFile(){
         string studentID,line;
+        vector<string> words;
         //Note:
         // - should be a csv file
         // - Format should be
@@ -123,6 +124,14 @@ namespace calculator{
         cin >> studentID;
         ifstream file(studentID+".csv");
         getline(file,line);
+        words = tokenizer(line,',');
+        setName(words.at(0)); //If formatted correctly, this is the name
+        while(getline(file,line)){
+            words = tokenizer(line,',');
+            this->courses.push_back(words.at(0));
+            this->grades.push_back(stod(words.at(1)));
+        }
+        file.close();
     }
 
 }

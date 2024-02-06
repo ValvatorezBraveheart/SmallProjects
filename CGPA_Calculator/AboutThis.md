@@ -4,6 +4,7 @@ Progress:
     - Learn to up the project (done)
     - Connect to commit and push to github (done)
     - Learn to set the tasks.json to run all the .cpp files (done)
+    - Learn file io for c++
     - Set up a student class
     - Able to take in and calculate cgpa on the go
     - Able to read a csv file and calculate cgpa
