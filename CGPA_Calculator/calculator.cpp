@@ -10,9 +10,6 @@
     - Might split into 2, one that take files, one that take 
     This one doesn't seems like we need a class
 */
-namespace calculator{ 
-    
-}
 namespace calculator{
     using namespace std;
     bool Student::checkValidScore(double score) {
@@ -84,7 +81,7 @@ namespace calculator{
                 }
                 cin >> score;
             }
-            cout << "Done";
+            cout << "Done\n";
         }
         void Student::calculateGPA(){
             this->cgpa = 0;
