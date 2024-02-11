@@ -23,27 +23,26 @@ namespace {
         student.calculateGPA();
         cin;
     }
+    void option2(){
+        calculator::Student student;
+        student.addDataFromFile();
+        student.calculateGPA();
+    }
 }
 
 int main(){
     string name;
     int option;
-    calculator::Student student;
-    vector<string> words = calculator::tokenizer("This,is,a,sentence",',');
-    for(int i = 0; i<words.size();i++){
-        cout << words.at(i) << "\n";
-    }
-    displayMainMenu();
     while(option!=3){
-        cin >> option; 
-        system("cls");
+        displayMainMenu();
+        cin >> option;
         switch (option){
             case 1:
                 option1();
                 break;
             case 2:
                 cout << "This will be implemented later";
-                student.addDataFromFile();
+                option2();
                 break;
             case 3:
                 cout << "Exiting...";
