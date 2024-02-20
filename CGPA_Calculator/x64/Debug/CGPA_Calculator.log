@@ -1,0 +1,5 @@
+﻿  calculator.cpp
+  main.cpp
+  Generating Code...
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: unresolved external symbol WinMain referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\Important\School\University\C++\SmallProjects\CGPA_Calculator\x64\Debug\CGPA_Calculator.exe : fatal error LNK1120: 1 unresolved externals

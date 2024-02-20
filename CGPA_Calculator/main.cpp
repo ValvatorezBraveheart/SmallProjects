@@ -32,7 +32,7 @@ namespace {
 
 int main(){
     string name;
-    int option;
+    int option = 0;
     while(option!=3){
         displayMainMenu();
         cin >> option;

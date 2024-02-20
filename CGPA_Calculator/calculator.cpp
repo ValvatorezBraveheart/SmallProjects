@@ -1,5 +1,7 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include <vector>
 #include <cstdlib>
 #include <fstream>
